@@ -1,0 +1,23 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: backend
+  name: backend
+  namespace: default
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: movie-go-backend:10
+      generation: null
+      importPolicy: {}
+      name: "10"
+      referencePolicy:
+        type: ""
+status:
+  dockerImageRepository: ""
