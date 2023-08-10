@@ -1,20 +1,26 @@
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.30.0 (9d8dcb518)
   creationTimestamp: null
   labels:
     io.kompose.service: db
   name: db
-  namespace: default
+  namespace: cityu-demo-go
 spec:
   replicas: 1
   selector:
-    io.kompose.service: db
+    matchLabels:
+      io.kompose.service: db
   strategy:
-    resources: {}
     type: Recreate
   template:
     metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.30.0 (9d8dcb518)
       creationTimestamp: null
       labels:
         io.kompose.network/movie-listing-app-app-network: "true"
@@ -28,7 +34,7 @@ spec:
               value: password
             - name: POSTGRES_USER
               value: testuser
-          image: ' '
+          image: postgres
           name: db
           ports:
             - containerPort: 5432
@@ -43,21 +49,4 @@ spec:
         - name: db-claim0
           persistentVolumeClaim:
             claimName: db-claim0
-  test: false
-  triggers:
-    - type: ConfigChange
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-          - db
-        from:
-          kind: ImageStreamTag
-          name: db:latest
-      type: ImageChange
-status:
-  availableReplicas: 0
-  latestVersion: 0
-  observedGeneration: 0
-  replicas: 0
-  unavailableReplicas: 0
-  updatedReplicas: 0
+status: {}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.30.0 (9d8dcb518)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: adminer
+  name: adminer
+  namespace: cityu-demo-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: adminer
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.30.0 (9d8dcb518)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/movie-listing-app-app-network: "true"
+        io.kompose.service: adminer
+    spec:
+      containers:
+        - image: adminer
+          name: adminer
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+      serviceAccount: postgresdb
+      restartPolicy: Always
+status: {}
