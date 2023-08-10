@@ -5,7 +5,7 @@ metadata:
   labels:
     io.kompose.service: db-claim0
   name: db-claim0
-  namespace: default
+  namespace: cityu-demo-go
 spec:
   accessModes:
     - ReadWriteOnce
