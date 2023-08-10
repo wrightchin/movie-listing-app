@@ -14,7 +14,7 @@ const Movie = () => {
             headers: headers
         }
 
-        fetch(`/movies/${id}`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/movies/${id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 setMovie(data);

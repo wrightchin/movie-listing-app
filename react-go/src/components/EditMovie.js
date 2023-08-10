@@ -71,7 +71,7 @@ const EditMovie = () => {
                 headers: headers,
             }
 
-            fetch(`/genres`, requestOptions)
+            fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/genres`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     const checks = [];
@@ -101,7 +101,7 @@ const EditMovie = () => {
                 headers: headers,
             }
 
-            fetch(`/admin/movies/${id}`, requestOptions)
+            fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/admin/movies/${id}`, requestOptions)
                 .then((response) => {
                     if (response.status !== 200) {
                         setError("Invalid response code: " + response.status)
@@ -191,7 +191,7 @@ const EditMovie = () => {
             credentials: "include",
         }
 
-        fetch(`/admin/movies/${movie.id}`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/admin/movies/${movie.id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {
@@ -254,7 +254,7 @@ const EditMovie = () => {
                 headers: headers,
               }
             
-              fetch(`/admin/movies/${movie.id}`, requestOptions)
+              fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/admin/movies/${movie.id}`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.error) {

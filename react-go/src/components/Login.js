@@ -31,7 +31,7 @@ const Login = () => {
             body: JSON.stringify(payload),
         }
 
-        fetch(`/authenticate`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/authenticate`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {

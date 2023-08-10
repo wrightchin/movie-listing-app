@@ -22,7 +22,7 @@ const OneGenre = () => {
             headers: headers,
         }
 
-        fetch(`/movies/genres/${id}`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/movies/genres/${id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {

@@ -13,7 +13,7 @@ const Movies = () => {
             headers: headers, 
         }
 
-        fetch(`http://localhost:5000/movies`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/movies`, requestOptions)
             .then(response => response.json())
             .then((data) => {
                 setMovies(data)

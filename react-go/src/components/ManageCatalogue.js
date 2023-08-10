@@ -24,7 +24,7 @@ const ManageCatalogue = () => {
 
         console.log("requestOptions", requestOptions)
 
-        fetch(`/admin/movies`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/admin/movies`, requestOptions)
             .then(response => response.json())
             .then((data) => {
                 setMovies(data)

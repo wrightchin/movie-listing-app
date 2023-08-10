@@ -15,7 +15,7 @@ const Genres = () => {
             headers: headers,
         }
 
-        fetch(`/genres`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/genres`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {

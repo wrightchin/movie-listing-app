@@ -17,7 +17,7 @@ function App() {
       credentials: "include",
     }
 
-    fetch(`/logout`, requestOptions)
+    fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/logout`, requestOptions)
     .catch(error => {
       console.log("error logging out", error);
     })
@@ -41,7 +41,7 @@ function App() {
           credentials: "include",
         }
 
-        fetch(`/refresh`, requestOptions)
+        fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/refresh`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
           if (data.access_token) {
@@ -75,7 +75,7 @@ function App() {
         credentials: "include",
       }
       console.log("use effect")
-      fetch(`/refresh`, requestOptions)
+      fetch(`http://backend-cityu-demo-go.apps.ocp4.lab.local/refresh`, requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (data.access_token) {
